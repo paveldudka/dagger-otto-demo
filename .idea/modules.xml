@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DaggerOttoDemo/DaggerOttoDemo.iml" filepath="$PROJECT_DIR$/DaggerOttoDemo/DaggerOttoDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DaggerOttoDemoProject.iml" filepath="$PROJECT_DIR$/DaggerOttoDemoProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dagger-otto-demo.iml" filepath="$PROJECT_DIR$/dagger-otto-demo.iml" />
     </modules>
   </component>
 </project>
