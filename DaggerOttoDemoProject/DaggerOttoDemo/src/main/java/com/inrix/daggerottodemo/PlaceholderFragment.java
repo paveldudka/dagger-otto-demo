@@ -1,0 +1,64 @@
+package com.inrix.daggerottodemo;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.inrix.models.IAuth;
+import com.squareup.otto.Bus;
+
+import javax.inject.Inject;
+
+/**
+ * A placeholder fragment containing a simple view.
+ */
+public class PlaceholderFragment extends Fragment implements View.OnClickListener {
+
+    public static final String TAG = "PlaceholderFragment";
+
+    @Inject
+    IAuth auth;
+    @Inject
+    Bus bus;
+
+    TextView authText;
+    TextView counterText;
+    int counter = 0;
+
+    public PlaceholderFragment() {
+        Injector.inject(this);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        this.authText = (TextView) rootView.findViewById(R.id.auth);
+        this.authText.setText(auth.getAuthToken());
+
+
+
+        this.counterText = (TextView) rootView.findViewById(R.id.counter);
+        this.counterText.setText(String.valueOf(counter));
+        ((Button) rootView.findViewById(R.id.bus_button)).setOnClickListener(this);
+        return rootView;
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        bus.post(new BusButtonClickedEvent());
+    }
+
+    public void incrementCounter() {
+        this.counterText.setText(String.valueOf(++counter));
+    }
+}
