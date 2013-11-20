@@ -2,9 +2,10 @@ package com.inrix.daggerottodemo;
 
 import android.app.Application;
 
-import com.inrix.modules.AndroidModule;
 import com.inrix.modules.AuthModule;
 import com.inrix.modules.EventBusModule;
+import com.inrix.modules.NetworkModule;
+import com.inrix.modules.TextLoaderModule;
 
 /**
  * Created by paveld on 11/18/13.
@@ -23,7 +24,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Object[] modules = new Object[]{new AuthModule(), new AndroidModule(this), new EventBusModule(), /*MockAuthModule*/};
+        Object[] modules = new Object[]{new AuthModule(), new NetworkModule(), new EventBusModule(), new TextLoaderModule()};
         Injector.init(modules);
     }
 }

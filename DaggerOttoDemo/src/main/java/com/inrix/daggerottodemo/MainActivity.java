@@ -1,9 +1,7 @@
 package com.inrix.daggerottodemo;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,11 +14,6 @@ public class MainActivity extends ActionBarActivity {
 
     private final String TAG = "MainActivity";
 
-    /* Demonstrate how can we retrieve app context via Dagger injection */
-    @Inject
-    @ForApplication
-    Context appContext;
-
     @Inject
     Bus bus;
 
@@ -28,6 +21,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Injector.inject(this);
 
         if (savedInstanceState == null) {
@@ -37,9 +31,6 @@ public class MainActivity extends ActionBarActivity {
 
 
         }
-
-        //Demonstrate appContext injected via Dagger is not null
-        Log.d(TAG, appContext.toString());
     }
 
     @Override

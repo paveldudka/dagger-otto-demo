@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.inrix.models.IAuth;
+import com.inrix.models.Authenticator;
+import com.inrix.models.TextLoader;
 import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
@@ -21,11 +22,17 @@ public class PlaceholderFragment extends Fragment implements View.OnClickListene
     public static final String TAG = "PlaceholderFragment";
 
     @Inject
-    IAuth auth;
+    Authenticator auth;
+    @Inject
+    TextLoader textLoader;
+
+
     @Inject
     Bus bus;
 
     TextView authText;
+    TextView textLoaderText;
+
     TextView counterText;
     int counter = 0;
 
@@ -37,10 +44,11 @@ public class PlaceholderFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        this.authText = (TextView) rootView.findViewById(R.id.auth);
+        this.authText = (TextView)rootView.findViewById(R.id.auth);
         this.authText.setText(auth.getAuthToken());
 
-
+        this.textLoaderText = (TextView)rootView.findViewById(R.id.text_loader);
+        this.textLoaderText.setText(textLoader.loadText());
 
         this.counterText = (TextView) rootView.findViewById(R.id.counter);
         this.counterText.setText(String.valueOf(counter));
