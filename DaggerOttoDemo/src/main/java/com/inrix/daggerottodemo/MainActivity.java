@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -13,6 +14,8 @@ import javax.inject.Inject;
 public class MainActivity extends ActionBarActivity {
 
     private final String TAG = "MainActivity";
+    private TextView counterText;
+    private int counter = 0;
 
     @Inject
     Bus bus;
@@ -21,6 +24,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.counterText = (TextView) findViewById(R.id.counter);
+        updateCount(this.counter);
 
         Injector.inject(this);
 
@@ -31,6 +36,10 @@ public class MainActivity extends ActionBarActivity {
 
 
         }
+    }
+
+    private void updateCount(int counter) {
+        this.counterText.setText(String.valueOf(counter));
     }
 
     @Override
@@ -67,6 +76,6 @@ public class MainActivity extends ActionBarActivity {
 
     @Subscribe
     public void onBusButtonClicked(BusButtonClickedEvent event) {
-        ((PlaceholderFragment) getSupportFragmentManager().findFragmentByTag(PlaceholderFragment.TAG)).incrementCounter();
+        updateCount(++counter);
     }
 }

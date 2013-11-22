@@ -1,5 +1,7 @@
 package com.inrix.models;
 
+import com.inrix.network.IHttpClient;
+
 /**
  * Created by paveld on 11/20/13.
  */

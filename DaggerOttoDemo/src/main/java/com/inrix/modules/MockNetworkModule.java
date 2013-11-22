@@ -1,7 +1,7 @@
 package com.inrix.modules;
 
-import com.inrix.models.IHttpClient;
-import com.inrix.models.MockHttp;
+import com.inrix.network.IHttpClient;
+import com.inrix.network.MockHttp;
 
 import dagger.Module;
 import dagger.Provides;

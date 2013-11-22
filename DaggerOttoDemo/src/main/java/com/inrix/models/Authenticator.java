@@ -1,5 +1,7 @@
 package com.inrix.models;
 
+import com.inrix.network.IHttpClient;
+
 import javax.inject.Inject;
 
 /**

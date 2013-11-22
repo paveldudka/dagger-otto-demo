@@ -3,7 +3,7 @@ package com.inrix.modules;
 
 import com.inrix.daggerottodemo.PlaceholderFragment;
 import com.inrix.models.Authenticator;
-import com.inrix.models.IHttpClient;
+import com.inrix.network.IHttpClient;
 
 import javax.inject.Singleton;
 

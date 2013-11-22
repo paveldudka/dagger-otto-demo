@@ -45,27 +45,12 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/bus_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/bus_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="Send bus event" />
-
-        <TextView
-            android:id="@+id/counter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:textSize="22sp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin" />
-
-    </LinearLayout>
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Send bus event" />
 
 
 </LinearLayout>

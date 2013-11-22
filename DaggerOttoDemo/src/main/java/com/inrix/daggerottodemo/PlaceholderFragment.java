@@ -33,9 +33,6 @@ public class PlaceholderFragment extends Fragment implements View.OnClickListene
     TextView authText;
     TextView textLoaderText;
 
-    TextView counterText;
-    int counter = 0;
-
     public PlaceholderFragment() {
         Injector.inject(this);
     }
@@ -44,14 +41,12 @@ public class PlaceholderFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        this.authText = (TextView)rootView.findViewById(R.id.auth);
+        this.authText = (TextView) rootView.findViewById(R.id.auth);
         this.authText.setText(auth.getAuthToken());
 
-        this.textLoaderText = (TextView)rootView.findViewById(R.id.text_loader);
+        this.textLoaderText = (TextView) rootView.findViewById(R.id.text_loader);
         this.textLoaderText.setText(textLoader.loadText());
 
-        this.counterText = (TextView) rootView.findViewById(R.id.counter);
-        this.counterText.setText(String.valueOf(counter));
         ((Button) rootView.findViewById(R.id.bus_button)).setOnClickListener(this);
         return rootView;
     }
@@ -64,9 +59,5 @@ public class PlaceholderFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         bus.post(new BusButtonClickedEvent());
-    }
-
-    public void incrementCounter() {
-        this.counterText.setText(String.valueOf(++counter));
     }
 }
