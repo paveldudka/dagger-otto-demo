@@ -6,6 +6,6 @@ package com.inrix.network;
 public class MockHttp implements IHttpClient{
     @Override
     public String performRequest() {
-        return "hello from MockHttp";
+        return "hello from mock network!";
     }
 }

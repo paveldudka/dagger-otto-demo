@@ -5,15 +5,15 @@ import com.inrix.network.IHttpClient;
 /**
  * Created by paveld on 11/20/13.
  */
-public class TextLoader {
+public class DataLoader {
     private IHttpClient client;
 
-    public TextLoader(IHttpClient client)
+    public DataLoader(IHttpClient client)
     {
         this.client = client;
     }
 
-    public String loadText()
+    public String loadData()
     {
         return this.client.performRequest();
     }

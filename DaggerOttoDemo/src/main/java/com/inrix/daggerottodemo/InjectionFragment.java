@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.inrix.models.Authenticator;
-import com.inrix.models.TextLoader;
+import com.inrix.models.DataLoader;
 
 import javax.inject.Inject;
 
@@ -17,13 +17,17 @@ import javax.inject.Inject;
  */
 public class InjectionFragment extends Fragment {
 
+
+    @Inject
+    DataLoader dataLoader;
+
+    TextView dataLoaderText;
+
     @Inject
     Authenticator auth;
-    @Inject
-    TextLoader textLoader;
 
     TextView authText;
-    TextView textLoaderText;
+
 
     public InjectionFragment() {
         Injector.inject(this);
@@ -33,11 +37,14 @@ public class InjectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.injection_fragment, container, false);
+
+
+        this.dataLoaderText = (TextView) rootView.findViewById(R.id.data_loader);
+        this.dataLoaderText.setText(dataLoader.loadData());
+
         this.authText = (TextView) rootView.findViewById(R.id.auth);
         this.authText.setText(auth.getAuthToken());
 
-        this.textLoaderText = (TextView) rootView.findViewById(R.id.text_loader);
-        this.textLoaderText.setText(textLoader.loadText());
 
         return rootView;
     }

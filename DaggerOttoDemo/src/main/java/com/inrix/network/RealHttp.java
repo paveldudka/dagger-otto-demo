@@ -6,6 +6,6 @@ package com.inrix.network;
 public class RealHttp implements IHttpClient {
     @Override
     public String performRequest() {
-        return "hello from RealHttp";
+        return "hello from network";
     }
 }
