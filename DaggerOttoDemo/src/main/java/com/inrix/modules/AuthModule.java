@@ -1,7 +1,7 @@
 package com.inrix.modules;
 
 
-import com.inrix.daggerottodemo.PlaceholderFragment;
+import com.inrix.daggerottodemo.InjectionFragment;
 import com.inrix.models.Authenticator;
 import com.inrix.network.IHttpClient;
 
@@ -13,7 +13,7 @@ import dagger.Provides;
 /**
  * Created by paveld on 11/18/13.
  */
-@Module(injects = {PlaceholderFragment.class}, complete = false, library = true)
+@Module(injects = {InjectionFragment.class}, complete = false)
 public class AuthModule {
 
     @Provides @Singleton

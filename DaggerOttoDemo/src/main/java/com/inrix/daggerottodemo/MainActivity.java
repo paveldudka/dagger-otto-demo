@@ -1,7 +1,8 @@
 package com.inrix.daggerottodemo;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     private final String TAG = "MainActivity";
     private TextView counterText;
@@ -30,11 +31,9 @@ public class MainActivity extends ActionBarActivity {
         Injector.inject(this);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment(), PlaceholderFragment.TAG)
-                    .commit();
-
-
+            FragmentTransaction transaction = getFragmentManager().beginTransaction().add(R.id.container, new InjectionFragment());
+            transaction.add(R.id.container, new BusFragment());
+            transaction.commit();
         }
     }
 

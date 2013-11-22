@@ -1,7 +1,7 @@
 package com.inrix.modules;
 
+import com.inrix.daggerottodemo.BusFragment;
 import com.inrix.daggerottodemo.MainActivity;
-import com.inrix.daggerottodemo.PlaceholderFragment;
 import com.squareup.otto.Bus;
 
 import javax.inject.Singleton;
@@ -12,7 +12,7 @@ import dagger.Provides;
 /**
  * Created by paveld on 11/18/13.
  */
-@Module(injects = {MainActivity.class, PlaceholderFragment.class}, complete = false)
+@Module(injects = {MainActivity.class, BusFragment.class})
 public class EventBusModule {
 
     @Provides
